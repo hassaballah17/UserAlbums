@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F4BD1BBF2E77D24700A69FE7 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BBE2E77D24700A69FE7 /* CombineMoya */; };
+		F4BD1BC12E77D24B00A69FE7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BC02E77D24B00A69FE7 /* Moya */; };
+		F4BD1BC32E77D24F00A69FE7 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BC22E77D24F00A69FE7 /* ReactiveMoya */; };
+		F4BD1BC52E77D25200A69FE7 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BC42E77D25200A69FE7 /* RxMoya */; };
+		F4BD1BC72E77D25500A69FE7 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BC62E77D25500A69FE7 /* CombineCocoa */; };
+		F4BD1BC92E77D25800A69FE7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BC82E77D25800A69FE7 /* SDWebImage */; };
+		F4BD1BCB2E77D25C00A69FE7 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4BD1BCA2E77D25C00A69FE7 /* SDWebImageMapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F4BD1B882E777F3000A69FE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +75,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BD1BC92E77D25800A69FE7 /* SDWebImage in Frameworks */,
+				F4BD1BC12E77D24B00A69FE7 /* Moya in Frameworks */,
+				F4BD1BBF2E77D24700A69FE7 /* CombineMoya in Frameworks */,
+				F4BD1BC52E77D25200A69FE7 /* RxMoya in Frameworks */,
+				F4BD1BC72E77D25500A69FE7 /* CombineCocoa in Frameworks */,
+				F4BD1BCB2E77D25C00A69FE7 /* SDWebImageMapKit in Frameworks */,
+				F4BD1BC32E77D24F00A69FE7 /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +108,7 @@
 				F4BD1B6F2E777F2E00A69FE7 /* UserAlbums */,
 				F4BD1B8A2E777F3000A69FE7 /* UserAlbumsTests */,
 				F4BD1B942E777F3000A69FE7 /* UserAlbumsUITests */,
+				F4BD1BBD2E77D23F00A69FE7 /* Frameworks */,
 				F4BD1B6E2E777F2E00A69FE7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +121,13 @@
 				F4BD1B912E777F3000A69FE7 /* UserAlbumsUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F4BD1BBD2E77D23F00A69FE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +150,13 @@
 			);
 			name = UserAlbums;
 			packageProductDependencies = (
+				F4BD1BBE2E77D24700A69FE7 /* CombineMoya */,
+				F4BD1BC02E77D24B00A69FE7 /* Moya */,
+				F4BD1BC22E77D24F00A69FE7 /* ReactiveMoya */,
+				F4BD1BC42E77D25200A69FE7 /* RxMoya */,
+				F4BD1BC62E77D25500A69FE7 /* CombineCocoa */,
+				F4BD1BC82E77D25800A69FE7 /* SDWebImage */,
+				F4BD1BCA2E77D25C00A69FE7 /* SDWebImageMapKit */,
 			);
 			productName = UserAlbums;
 			productReference = F4BD1B6D2E777F2E00A69FE7 /* UserAlbums.app */;
@@ -208,6 +240,11 @@
 			);
 			mainGroup = F4BD1B642E777F2E00A69FE7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */,
+				F4BD1BA62E77864000A69FE7 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				F4BD1BA72E77869F00A69FE7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4BD1B6E2E777F2E00A69FE7 /* Products */;
 			projectDirPath = "";
@@ -565,6 +602,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		F4BD1BA62E77864000A69FE7 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+		F4BD1BA72E77869F00A69FE7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4BD1BBE2E77D24700A69FE7 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		F4BD1BC02E77D24B00A69FE7 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		F4BD1BC22E77D24F00A69FE7 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		F4BD1BC42E77D25200A69FE7 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA52E77860800A69FE7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		F4BD1BC62E77D25500A69FE7 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA62E77864000A69FE7 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+		F4BD1BC82E77D25800A69FE7 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA72E77869F00A69FE7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		F4BD1BCA2E77D25C00A69FE7 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BD1BA72E77869F00A69FE7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4BD1B652E777F2E00A69FE7 /* Project object */;
 }
