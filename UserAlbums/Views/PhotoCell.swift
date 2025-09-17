@@ -12,6 +12,7 @@ class PhotoCell: UICollectionViewCell {
     static let reuseIdentifier = "PhotoCell"
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -24,11 +25,9 @@ class PhotoCell: UICollectionViewCell {
     }
     
     func configure(with photo: Photo) {
-        print(photo.thumbnailUrl)
         var urlString = photo.thumbnailUrl
-        print(urlString)
-        if urlString.starts(with: "http://") {
-            urlString = urlString.replacingOccurrences(of: "http://", with: "https://")
+        if urlString.contains("via.placeholder") {
+            urlString = "https://picsum.photos/200"
         }
         
         if let url = URL(string: urlString) {

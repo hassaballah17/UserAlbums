@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class PhotosViewController: UIViewController {
+    
     var user: User!
     var album: Album!
     
@@ -19,16 +20,32 @@ class PhotosViewController: UIViewController {
     private var viewModel = PhotosViewModel()
     private var cancellables = Set<AnyCancellable>()
     
+    private var searchController: UISearchController!
+    private var filteredPhotos: [Photo] = []
+    private var isSearching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameLabel.text = "Hi, \(user.name)!"
         albumLabel.text = album.title
+        setupSearchController()
         setupCollectionView()
         
         viewModel.fetchPhotos(for: album.id)
         bindViewModel()
     }
+    
+    private func setupSearchController() {
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchBar.placeholder = "Search photos"
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.delegate = self
+            navigationItem.searchController = searchController
+            definesPresentationContext = true
+        }
+        
+    
     
     private func setupCollectionView() {
         collectionView.dataSource = self
@@ -94,8 +111,34 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = viewModel.photos[indexPath.item]
-        print("Tapped photo: \(photo.title)")
-        // Later: navigate to a fullscreen photo viewer
+        let photo = isSearching ? filteredPhotos[indexPath.item] : viewModel.photos[indexPath.item]
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell,
+           let currentImage = cell.imageView.image {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let detailsVC = storyboard.instantiateViewController(withIdentifier: "PhotoDetailsViewController") as? PhotoDetailsViewController {
+                detailsVC.image = currentImage   // pass UIImage, not URL
+                navigationController?.pushViewController(detailsVC, animated: true)
+            }
+        }
+    }
+    
+
+}
+
+extension PhotosViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            let query = searchBar.text ?? ""
+            if query.isEmpty {
+                isSearching = false
+                filteredPhotos = []
+            } else {
+                isSearching = true
+                filteredPhotos = viewModel.photos.filter { $0.title.lowercased().contains(query.lowercased()) }
+            }
+            collectionView.reloadData()
+            searchController.isActive = false  // close keyboard
     }
 }
+
